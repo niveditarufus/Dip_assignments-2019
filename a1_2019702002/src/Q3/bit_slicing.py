@@ -12,7 +12,7 @@ def bit_plane(image,bits=8):
 	return plane
 		
 
-image = cv2.imread('cameraman.png')
+image = cv2.imread('cameraman.png')# path needs to be channged all input images are available in the input folder
 grey_im = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 planes = bit_plane(grey_im)
 fig, ax = plt.subplots(3,3)

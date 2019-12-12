@@ -21,10 +21,10 @@ def equalise(image,a):
 
 
 
-im = cv2.imread('church.png')
+im = cv2.imread('church.png')# path needs to be channged all input images are available in the input folder
 
 im = cv2.cvtColor(im, cv2.COLOR_BGR2GRAY)
-cv2.imwrite("test_church_gray.jpg",im)
+cv2.imwrite("test_church_gray.jpg",im)# output images in the output folder can be used for refrence
 
 count = get_histogram(im,1)
 print(len(count))
@@ -33,5 +33,5 @@ a = np.cumsum(a)
 a = a*255
 im = equalise(im,a)
 get_histogram(im,2)
-cv2.imwrite("test_church.jpg",im)
+cv2.imwrite("test_church.jpg",im)# output images in the output folder can be used for refrence
 plt.show()

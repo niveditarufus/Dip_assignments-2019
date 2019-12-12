@@ -17,9 +17,9 @@ def negativeImage(image, maxintensity = 256):
 
 	return image
 
-im = cv2.imread('lena7.jpg')
+im = cv2.imread('lena7.jpg')# path needs to be channged all input images are available in the input folder
 im = cv2.cvtColor(im, cv2.COLOR_BGR2GRAY)
 max_int = np.amax(im)
 img = negativeImage(im,max_int)
 print(max_int)
-cv2.imwrite("negative7.jpg",im)
+cv2.imwrite("negative7.jpg",im)# output images in the output folder can be used for refrence

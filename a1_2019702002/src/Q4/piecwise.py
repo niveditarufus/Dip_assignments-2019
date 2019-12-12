@@ -29,9 +29,10 @@ def step_tranform(image):
 			image[x][y] = 255*(k*0.2)
 	return image
 
-im = cv2.imread('lena.jpg')
+im = cv2.imread('lena.jpg')# path needs to be channged all input images are available in the input folder
 im = cv2.cvtColor(im, cv2.COLOR_BGR2GRAY)
 im1 = im
 im = piecewise_tranform(im)
 img1 = step_tranform(im1)
-cv2.imwrite("tranform2.jpg",im1)
+cv2.imwrite("tranform2.jpg",im1)# output images in the output folder can be used for refrence
+

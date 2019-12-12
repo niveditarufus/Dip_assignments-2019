@@ -13,8 +13,9 @@ def gamma_corr(img,gamma_value=1):
 
 	return image
 
-im = cv2.imread('gamma-corr.png')
+im = cv2.imread('gamma-corr.png')# path needs to be channged all input images are available in the input folder
 
 img = gamma_corr(im,1.5)
 
-cv2.imwrite("gamma = 1.5.jpg",img)
+cv2.imwrite("gamma = 1.5.jpg",img)# output images in the output folder can be used for refrence
+

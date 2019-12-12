@@ -18,7 +18,7 @@ def BitQuantiseImage(image,bits=4):
 
 	return image
 
-im = cv2.imread('lena.jpg')
+im = cv2.imread('lena.jpg')# path needs to be channged all input images are available in the input folder
 k_bits=int(sys.argv[1])
 im = cv2.cvtColor(im, cv2.COLOR_BGR2GRAY)
 img = BitQuantiseImage(im,k_bits)

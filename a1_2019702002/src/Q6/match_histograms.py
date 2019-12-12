@@ -34,9 +34,9 @@ def hist_equalize(org, spec):
     b = np.array(b,dtype='uint8')
     return b[bin_idx].reshape(oldshape)
 
-spec = cv2.imread('eyeref.png')
+spec = cv2.imread('eyeref.png')# path needs to be channged all input images are available in the input folder
 spec = cv2.cvtColor(spec, cv2.COLOR_BGR2GRAY)
-org = cv2.imread('eye.png')
+org = cv2.imread('eye.png')# path needs to be channged all input images are available in the input folder
 org = cv2.cvtColor(org, cv2.COLOR_BGR2GRAY)
 
 a = hist_equalize(org, spec)
@@ -44,7 +44,7 @@ get_histogram(org,1)
 get_histogram(spec,2)
 get_histogram(a,3)
 
-cv2.imwrite("a.png",a)
-cv2.imwrite("a1.png",org)
-cv2.imwrite("a2.png",spec)
+cv2.imwrite("a.png",a)# output images in the output folder can be used for refrence
+cv2.imwrite("a1.png",org)# output images in the output folder can be used for refrence
+cv2.imwrite("a2.png",spec)# output images in the output folder can be used for refrence
 plt.show()

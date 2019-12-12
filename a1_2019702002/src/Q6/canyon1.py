@@ -48,11 +48,12 @@ def hist_equalize(org, spec):
     b = np.array(b,dtype='uint8')
     return b[bin_idx].reshape(oldshape)
 
-spec = cv2.imread('canyon_02_02.png')
+spec = cv2.imread('canyon_02_02.png')# path needs to be channged all input images are available in the input folder
 spec = cv2.cvtColor(spec, cv2.COLOR_BGR2GRAY)
-cv2.imwrite("canyon4ref.png",spec)
+cv2.imwrite("canyon4ref.png",spec)# output images in the output folder can be used for refrence
 
-org = cv2.imread('part4.png')
+
+org = cv2.imread('part4.png')# path needs to be channged all input images are available in the input folder
 org = cv2.cvtColor(org, cv2.COLOR_BGR2GRAY)
 
 a = hist_equalize(org, spec)
@@ -61,5 +62,6 @@ a = hist_equalize(org, spec)
 # get_histogram(spec,2)
 # get_histogram(a,3)
 # a = linContrastStretching(a,0,255)
-cv2.imwrite("canyon4.png",a)
+cv2.imwrite("canyon4.png",a)# output images in the output folder can be used for refrence
+
 # plt.show()
