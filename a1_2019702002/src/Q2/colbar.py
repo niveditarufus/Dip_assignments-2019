@@ -5,7 +5,7 @@ from matplotlib import pyplot as plt
 import matplotlib as mpl
 from matplotlib import cm
 import cv2 
-bgr_image = cv2.imread('contrast_stretched_lena.jpg')
+bgr_image = cv2.imread('contrast_stretched_lena.jpg')# path needs to be channged all input images are available in the input folder
 plt.imshow(bgr_image, cmap = 'gray')
 plt.colorbar(cmap = 'gray',fraction=0.03, pad=0.04)
 plt.show()  

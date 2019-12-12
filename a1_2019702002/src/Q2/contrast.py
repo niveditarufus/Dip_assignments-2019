@@ -10,7 +10,7 @@ def linContrastStretching(im, a=0, b=255,ahigh,alow):
 			im[x][y] =  ((im[x][y] - alow)*(b-a)/(ahigh - alow))
 	return im
 
-grey_im = cv2.imread("lena.jpg")
+grey_im = cv2.imread("lena.jpg")# path needs to be channged all input images are available in the input folder
 grey_im = cv2.cvtColor(grey_im, cv2.COLOR_BGR2GRAY)
 hi,wi = grey_im.shape
 vis = np.zeros((hi, wi+wi))
@@ -21,4 +21,4 @@ grey_im = linContrastStretching(grey_im,0, 255,230,35)
 ho,wo = grey_im.shape
 
 vis[:ho, wi:wi+wo] = grey_im
-cv2.imwrite('output1.jpg',vis)
+cv2.imwrite('output1.jpg',vis) # output images in the output folder can be used for refrence

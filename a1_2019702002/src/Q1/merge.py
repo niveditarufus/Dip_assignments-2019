@@ -29,9 +29,9 @@ def mergeImage(f_image,b_image):
 
 # path_image=sys.argv[1]
 # background = sys.argv[2]
-f = cv2.imread('fg.jpg')
-b = cv2.imread('bg.jpg')
+f = cv2.imread('fg.jpg') # path needs to be channged all input images are available in the input folder
+b = cv2.imread('bg.jpg') # path needs to be channged all input images are available in the input folder
 f = mergeImage(f,b)
-cv2.imwrite( "result.jpg", f)
+cv2.imwrite( "result.jpg", f) # output images in the output folder can be used for refrence
 
 
