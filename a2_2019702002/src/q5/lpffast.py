@@ -43,7 +43,7 @@ def sumQuery(aux, tli, tlj, rbi, rbj):
         res = res + aux[tli - 1][tlj - 1]
     return res
 
-im = cv2.imread('image2.jpeg')
+im = cv2.imread('image2.jpeg')# path needs to be channged all input images are available in the input folder
 im = cv2.cvtColor(im, cv2.COLOR_BGR2GRAY)
 mask = generate_mask (1,5)
 padded_image = padding(im,mask)
@@ -51,4 +51,4 @@ aux = np.zeros(padded_image.shape)
 preProcess(padded_image,aux)
 output = sliding_window(im,aux,mask,5)
 output=output/25
-cv2.imwrite('imagefastlpf.jpg',output)
+cv2.imwrite('imagefastlpf.jpg',output)# output images in the output folder can be used for refrence

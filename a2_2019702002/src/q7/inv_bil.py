@@ -47,7 +47,9 @@ def inverse_bilateral_filter(win_im,sd=3,sr=50):
 
 	return (gk/w)
 
-im = cv2.imread('gandalf.png')
+im = cv2.imread('gandalf.png')# path needs to be channged all input images are available in the input folder
 padded_image = padding(im,3,3)
 output = sliding_window(im,padded_image,3)
-cv2.imwrite('inverse.jpg',output)
+cv2.imwrite('inverse.jpg',output)# output images in the output folder can be used for refrence
+
+

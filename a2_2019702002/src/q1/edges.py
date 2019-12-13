@@ -14,37 +14,37 @@ def sliding_window(image, mask,window = 3):
 			a[x][y] = np.sum(win_im)
 			
 	return a
-im = cv2.imread('barbara.jpg')
+im = cv2.imread('barbara.jpg')# path needs to be channged all input images are available in the input folder
 im = cv2.cvtColor(im, cv2.COLOR_BGR2GRAY)
 
 sobel_x = np.array([[-1,0,1],[-2,0,2],[-1,0,1]])
 a = sliding_window(im, sobel_x)
-cv2.imwrite('sobel_x.jpg',a)
+cv2.imwrite('sobel_x.jpg',a)# output images in the output folder can be used for refrence
 
 sobel_y = np.array([[-1,-2,-1],[0,0,0],[1,2,1]])
 a = sliding_window(im, sobel_y)
-cv2.imwrite('sobel_y.jpg',a)
+cv2.imwrite('sobel_y.jpg',a)# output images in the output folder can be used for refrence
 
 prewit_x = np.array([[-1,0,1],[-1,0,1],[-1,0,1]])
 a = sliding_window(im, prewit_x)
-cv2.imwrite('prewit_x.jpg',a)
+cv2.imwrite('prewit_x.jpg',a)# output images in the output folder can be used for refrence
 
 prewit_y = np.array([[1,1,1],[0,0,0],[-1,-1,-1]])
 a = sliding_window(im, prewit_y)
-cv2.imwrite('prewit_y.jpg',a)
+cv2.imwrite('prewit_y.jpg',a)# output images in the output folder can be used for refrence
 
 robert_x = np.array([[0,-1],[1,0]])
 a = sliding_window(im, robert_x,2)
-cv2.imwrite('robert_x.jpg',a)
+cv2.imwrite('robert_x.jpg',a)# output images in the output folder can be used for refrence
 
 robert_y = np.array([[1,0],[0,-1]])
 a = sliding_window(im, robert_y,2)
-cv2.imwrite('robert_y.jpg',a)
+cv2.imwrite('robert_y.jpg',a)# output images in the output folder can be used for refrence
 
 lap_4 = np.array([[0,1,0],[1,-4,1],[0,1,0]])
 a = sliding_window(im, lap_4)
-cv2.imwrite('lap_4.jpg',a)
+cv2.imwrite('lap_4.jpg',a)# output images in the output folder can be used for refrence
 
 lap_8 = np.array([[1,1,1],[1,-8,1],[1,1,1]])
 a = sliding_window(im, lap_8)
-cv2.imwrite('lap_8.jpg',a)
+cv2.imwrite('lap_8.jpg',a)# output images in the output folder can be used for refrence

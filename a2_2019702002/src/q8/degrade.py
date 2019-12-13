@@ -36,9 +36,9 @@ def remove(win_im):
 	idx = x.shape[0]
 	return x[int(idx/2)]
 
-im = cv2.imread('Degraded.jpg')
+im = cv2.imread('Degraded.jpg')# path needs to be channged all input images are available in the input folder
 padded_image = padding(im,3,3)
 output = sliding_window(im,padded_image,3)
-cv2.imwrite('clear.jpg',output)
+cv2.imwrite('clear.jpg',output)# output images in the output folder can be used for refrence
 
 

@@ -38,8 +38,8 @@ def kthSmallest(input):
     kSmallest = heapq.nsmallest(k,result) 
     return kSmallest[-1]
 
-im = cv2.imread('image.jpg')
+im = cv2.imread('image.jpg')# path needs to be channged all input images are available in the input folder
 im = cv2.cvtColor(im, cv2.COLOR_BGR2GRAY)
 padded_image = padding(im,9,9)
 output = sliding_window(im,padded_image,9)
-cv2.imwrite('median.jpg',output)
+cv2.imwrite('median.jpg',output)# output images in the output folder can be used for refrence

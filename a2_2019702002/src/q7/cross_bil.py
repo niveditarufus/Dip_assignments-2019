@@ -44,10 +44,12 @@ def cross_bil_filter(win_flash, win_noflash,sd=2,sr=10):
 			w = w + (r*d)
 	return (gk/w)
 
-flash = cv2.imread('pots_flash.jpg')
-no_flash = cv2.imread("pots_no_flash.jpg")
+flash = cv2.imread('pots_flash.jpg')# path needs to be channged all input images are available in the input folder
+no_flash = cv2.imread("pots_no_flash.jpg")# path needs to be channged all input images are available in the input folder
 window = 3
 padded_flash = padding(flash,window,window)
 padded_no_flash = padding(no_flash,window)
 output = sliding_window(flash, padded_flash, padded_no_flash, window)
-cv2.imwrite('proper.jpg',output)
+cv2.imwrite('proper.jpg',output)# output images in the output folder can be used for refrence
+
+

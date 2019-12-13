@@ -14,8 +14,8 @@ def sliding_window(image, mask,window = 3):
 			a[x][y] = np.sum(win_im)
 			
 	return a
-im = cv2.imread('drops_input.jpg')
+im = cv2.imread('drops_input.jpg')# path needs to be channged all input images are available in the input folder
 im = cv2.cvtColor(im, cv2.COLOR_BGR2GRAY)
 lap_8 = np.array([[1,1,1],[1,-8,1],[1,1,1]])
 a = sliding_window(im, lap_8)
-cv2.imwrite('drops.jpg',a)
+cv2.imwrite('drops.jpg',a)# output images in the output folder can be used for refrence

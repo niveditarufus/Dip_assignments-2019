@@ -34,12 +34,12 @@ def generate_mask(weight,size = 3):
 	print(mask)
 	return mask
 
-im = cv2.imread('ice.jpg')
+im = cv2.imread('ice.jpg')# path needs to be channged all input images are available in the input folder
 im = cv2.cvtColor(im, cv2.COLOR_BGR2GRAY)
-cv2.imwrite("gray_ice.jpg",im)
+cv2.imwrite("gray_ice.jpg",im)# output images in the output folder can be used for refrence
 mask = generate_mask (1.1,3)
 padded_image = padding(im,mask)
 output = sliding_window(im,padded_image,mask,1)
-cv2.imwrite('trial_ice3.jpg',output)
+cv2.imwrite('trial_ice3.jpg',output)# output images in the output folder can be used for refrence
 
  

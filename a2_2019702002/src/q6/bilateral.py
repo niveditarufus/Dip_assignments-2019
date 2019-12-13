@@ -47,9 +47,9 @@ def bilateral_filter(win_im,sd=1,sr=1):
 
 	return (gk/w)
 
-im = cv2.imread('gt_sky.png')
+im = cv2.imread('gt_sky.png')# path needs to be channged all input images are available in the input folder
 # im = cv2.cvtColor(im, cv2.COLOR_BGR2GRAY)
 # im = cv2.resize(im,(480,640))
 padded_image = padding(im,3,3)
 output = sliding_window(im,padded_image,3)
-cv2.imwrite('gt _sky_ooo.jpg',output)
+cv2.imwrite('gt _sky_ooo.jpg',output)# output images in the output folder can be used for refrence
