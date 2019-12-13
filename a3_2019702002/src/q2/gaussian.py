@@ -22,7 +22,7 @@ def padding(im,kernel_row = 3, kernel_col = 3):
 	padded_image[pad_height:padded_image.shape[0] - pad_height, pad_width:padded_image.shape[1] - pad_width] = im
 	return padded_image
 
-im = cv2.imread('lena.jpg')
+im = cv2.imread('lena.jpg')# path needs to be channged all input images are available in the input folder
 im = cv2.cvtColor(im, cv2.COLOR_BGR2GRAY)
 im = padding(im)
 im_fft = np.fft.fft2(im)
@@ -31,7 +31,7 @@ im_fft = np.fft.fftshift(im_fft)
 H = gaussian_filter(im_fft,20)
 lpf = np.multiply(im_fft,H)
 lpf = np.fft.ifft2(np.fft.fftshift(lpf)).astype("uint8")
-cv2.imwrite("gaussian20.jpg",lpf)
+cv2.imwrite("gaussian20.jpg",lpf)# output images in the output folder can be used for refrence
 
 # im1 = cv2.imread('gaussian20.jpg')
 # im1 = cv2.cvtColor(im1, cv2.COLOR_BGR2GRAY)
