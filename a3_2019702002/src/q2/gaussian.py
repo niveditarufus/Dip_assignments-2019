@@ -33,9 +33,9 @@ lpf = np.multiply(im_fft,H)
 lpf = np.fft.ifft2(np.fft.fftshift(lpf)).astype("uint8")
 cv2.imwrite("gaussian20.jpg",lpf)# output images in the output folder can be used for refrence
 
-# im1 = cv2.imread('gaussian20.jpg')
+# im1 = cv2.imread('gaussian20.jpg')# path needs to be channged all input images are available in the input folder
 # im1 = cv2.cvtColor(im1, cv2.COLOR_BGR2GRAY)
-# im2 = cv2.imread('gaussian60.jpg')
+# im2 = cv2.imread('gaussian60.jpg')# path needs to be channged all input images are available in the input folder
 # im2 = cv2.cvtColor(im2, cv2.COLOR_BGR2GRAY)
 # diff = im2 -im1
-# cv2.imwrite("gaussian_diff.jpg",diff)
+# cv2.imwrite("gaussian_diff.jpg",diff)# output images in the output folder can be used for refrence

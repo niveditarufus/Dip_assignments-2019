@@ -23,7 +23,7 @@ def butterworth_BR(x,D0 = 73,w=50,n=3):
 			y = ((D*w)/(D**2 - D0**2))**(2*n)
 			H[i,j] = 1/(1 + y)
 
-	cv2.imwrite('filter.jpg',20*np.log(abs(H)+1))
+	cv2.imwrite('filter.jpg',20*np.log(abs(H)+1))# output images in the output folder can be used for refrence
 	return H
 
 def filter(x,D0,n=1):
@@ -38,18 +38,18 @@ def filter(x,D0,n=1):
 			# H[i,j] = 1 - H[i,j]
 	# H = np.fft.fftshift(H)
 
-	cv2.imwrite('filterlpf.jpg',20*np.log(abs(H)+1))
+	cv2.imwrite('filterlpf.jpg',20*np.log(abs(H)+1))# output images in the output folder can be used for refrence
 
 	return H
 
 
-im = cv2.imread('land.png')
+im = cv2.imread('land.png')# path needs to be channged all input images are available in the input folder
 im = cv2.cvtColor(im, cv2.COLOR_BGR2GRAY)
 # im = padding(im)
 im_fft = np.fft.fft2(im)
 im_fft = np.fft.fftshift(im_fft)
 mag = 10*np.log(abs(im_fft) + 1)
-cv2.imwrite("fft.jpg", mag)
+cv2.imwrite("fft.jpg", mag)# output images in the output folder can be used for refrence
 # H1 = notchfilter(im_fft,10,46,78,1)
 # H2 = notchfilter(im_fft,10,46,182,1)
 # H3 = notchfilter(im_fft,10,150,78,1)
@@ -80,8 +80,8 @@ output = np.multiply(im_fft,H)
 # output = np.multiply(output,H1)
 
 mag = 10*np.log(abs(output) + 1)
-cv2.imwrite("ffto.jpg", mag)
+cv2.imwrite("ffto.jpg", mag)# output images in the output folder can be used for refrence
 output = np.fft.ifft2(np.fft.fftshift(output)).astype("uint8")
-cv2.imwrite("output.jpg",output)
+cv2.imwrite("output.jpg",output)# output images in the output folder can be used for refrence
 plt.imshow(mag,cmap = 'gray')
 plt.show()

@@ -18,7 +18,7 @@ def conv_fft(img1, img2):
     res = ifft2(ifftshift(fftshift(fft2(img1, s=(M, N))) * fftshift(fft2(img2, s=(M, N)))))
     res = abs(res)
     return res
-h = cv2.imread('bricks.jpg')
+h = cv2.imread('bricks.jpg')# path needs to be channged all input images are available in the input folder
 im1 = cv2.cvtColor(h, cv2.COLOR_BGR2GRAY)
 im2 = im1[:128,:128]
 im3 = im1[:64,:64]

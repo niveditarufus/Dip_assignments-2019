@@ -48,7 +48,7 @@ im_fft = np.fft.fftshift(im_fft)
 # H = ideal_lpf(im_fft)
 # lpf = np.multiply(im_fft,H)
 # lpf = np.fft.ifft2(np.fft.fftshift(lpf)).astype("uint8")
-# cv2.imwrite("ideal_lpf.jpg",lpf)# path needs to be channged all input images are available in the input folder
+# cv2.imwrite("ideal_lpf.jpg",lpf
 # output images in the output folder can be used for refrence
 
 # H = butterworth_lpf(im_fft)
