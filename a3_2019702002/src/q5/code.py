@@ -23,9 +23,11 @@ im = cv2.imread('lena.jpg')# path needs to be channged all input images are avai
 im = cv2.cvtColor(im, cv2.COLOR_BGR2GRAY)
 im = padding(im)
 
+
 im_fft = np.fft.fft2(im)
 im_fft = np.fft.fftshift(im_fft)
 cv2.imwrite("input.jpg",np.fft.ifft2(np.fft.fftshift(im_fft)).astype("uint8"))# output images in the output folder can be used for refrence
+
 
 H = filter(im_fft)
 cv2.imwrite("filter.jpg",10*np.log(abs(H)+1))# output images in the output folder can be used for refrence

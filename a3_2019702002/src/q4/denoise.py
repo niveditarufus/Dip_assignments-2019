@@ -7,14 +7,12 @@ import matplotlib.pyplot as plt
 
 def padding(im,kernel_row = 3, kernel_col = 3):
 	image_row, image_col = im.shape
-	 
 	pad_height = int((kernel_row - 1) / 2)
 	pad_width = int((kernel_col - 1) / 2)
-	 
 	padded_image = np.zeros((image_row + (2 * pad_height), image_col + (2 * pad_width)))
-	 
 	padded_image[pad_height:padded_image.shape[0] - pad_height, pad_width:padded_image.shape[1] - pad_width] = im
 	return padded_image
+
 def butterworth_BR(x,D0 = 73,w=50,n=3):
 	H = np.ones(x.shape)
 	for i in range(H.shape[0]):
@@ -37,9 +35,7 @@ def filter(x,D0,n=1):
 				# H[i,j] = 1
 			# H[i,j] = 1 - H[i,j]
 	# H = np.fft.fftshift(H)
-
 	cv2.imwrite('filterlpf.jpg',20*np.log(abs(H)+1))# output images in the output folder can be used for refrence
-
 	return H
 
 
@@ -50,6 +46,8 @@ im_fft = np.fft.fft2(im)
 im_fft = np.fft.fftshift(im_fft)
 mag = 10*np.log(abs(im_fft) + 1)
 cv2.imwrite("fft.jpg", mag)# output images in the output folder can be used for refrence
+
+
 # H1 = notchfilter(im_fft,10,46,78,1)
 # H2 = notchfilter(im_fft,10,46,182,1)
 # H3 = notchfilter(im_fft,10,150,78,1)
@@ -65,16 +63,20 @@ cv2.imwrite("fft.jpg", mag)# output images in the output folder can be used for 
 # H4 = notchfilter(im_fft,10,177, 149,1)
 # H5 = notchfilter(im_fft,10,184, 160,1)
 # H6 = notchfilter(im_fft,10,177, 184,1)
+
 H = butterworth_BR(im_fft)
 H1 = butterworth_BR(im_fft,134,50)
 H = np.multiply(H1,H)
+
 # H = np.multiply(H,H3)
 # H = np.multiply(H,H4)
 # H = np.multiply(H,H5)
 # H = np.multiply(H,H6)
 # H = np.multiply(H,H7)
 # H = np.multiply(H,H8)
+
 output = np.multiply(im_fft,H)
+
 # output = np.multiply(output,H1)
 # H1 = butterworth_BR(im_fft,50,5)
 # output = np.multiply(output,H1)

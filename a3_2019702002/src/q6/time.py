@@ -12,12 +12,15 @@ import matplotlib.pyplot as plt
 def conv_normal(img1, img2):
     return convolve2d(img1, img2.astype(float))
 
+
 def conv_fft(img1, img2):
     M = img1.shape[0] + img2.shape[0] - 1
     N = img1.shape[1] + img2.shape[1] - 1
     res = ifft2(ifftshift(fftshift(fft2(img1, s=(M, N))) * fftshift(fft2(img2, s=(M, N)))))
     res = abs(res)
     return res
+
+
 h = cv2.imread('bricks.jpg')# path needs to be channged all input images are available in the input folder
 im1 = cv2.cvtColor(h, cv2.COLOR_BGR2GRAY)
 im2 = im1[:128,:128]
@@ -29,6 +32,8 @@ norm_time = zeros((5,5))
 fft_time = zeros((5,5))
 fig = plt.figure()
 ax = fig.add_subplot(111, projection='3d')
+
+
 for row in range(4):
     for col in range(4):
         start = time()
@@ -43,8 +48,12 @@ for row in range(4):
         n = end - start
         ax.scatter((2**row)*32, (2**col)*32, f, c='r', marker='o')
         ax.scatter((2**row)*32, (2**col)*32, n, c='b', marker='^')
+
+        
 # print(fft_time)
 # print(norm_time)
+
+
 ax.set_xlabel('Image 1 Size')
 ax.set_ylabel('Image 2 Size')
 ax.set_zlabel('Time')
